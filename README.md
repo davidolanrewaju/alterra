@@ -1,4 +1,4 @@
-# 🏦 Crypto Portfolio Management System (Laravel Breeze + Blade)
+# 🏦 Crypto Portfolio Management System
 
 A **full-stack Laravel application** for managing cryptocurrency portfolios. This system enables users to **register, deposit cryptocurrency, invest in portfolios, track performance, and withdraw funds**, all through a secure web interface built with **Blade templates**.
 
