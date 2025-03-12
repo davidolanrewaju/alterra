@@ -1,66 +1,185 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🏦 Crypto Portfolio Management System (Laravel Breeze + Blade)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A **full-stack Laravel application** for managing cryptocurrency portfolios. This system enables users to **register, deposit cryptocurrency, invest in portfolios, track performance, and withdraw funds**, all through a secure web interface built with **Blade templates**.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📌 Table of Contents
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [🚀 Features](#-features)
+- [🛠️ Tech Stack](#-tech-stack)
+- [📋 Project Structure](#-project-structure)
+- [🖥️ Installation & Setup](#-installation--setup)
+- [📡 API Endpoints](#-api-endpoints)
+- [🎨 Frontend (Blade) Implementation](#-frontend-blade-implementation)
+- [🚧 Development Timeline](#-development-timeline)
+- [📝 License](#-license)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🚀 Features
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 🧑‍💻 User Management
+- **User Registration & Authentication**: Email-based sign-up with **Laravel Breeze (Sanctum)** for API token authentication.
+- **Role-Based Access**: Admins can manage deposits, withdrawals, and portfolios.
+- **Profile Management**: Users can update profile details and change passwords.
+- **Security Enhancements**:
+  ✅ **Strong password policy** (8+ characters, numbers, special characters)
+  ✅ **Email verification** before login access
+  ✅ **Brute-force protection** (Laravel Throttle Middleware)
+  ✅ **Session & Token Management** (auto-expiry after inactivity)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 💰 Crypto Deposit System
+- **Multi-Network Wallets**: Generate deposit addresses for different cryptocurrencies.
+- **Real-time Transaction Monitoring**: Fetch on-chain transactions every **15 minutes**.
+- **Admin Verification for Deposits**: Prevents unauthorized fund credits.
+- **Supported Networks**:
+  ✅ Ethereum (ETH)
+  ✅ Bitcoin (BTC)
+  ✅ Binance Smart Chain (BNB)
+  ✅ Solana (SOL)
+  ✅ Polygon (MATIC)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 📈 Portfolio Management
+- **Predefined Investment Strategies**: Users can invest in system-generated portfolios.
+- **Custom Portfolio Creation**: Users can define **3-20 crypto assets per portfolio**.
+- **Balance Verification Before Purchase**.
+- **Transaction History & Receipts**.
 
-## Laravel Sponsors
+### 📊 Performance Tracking
+- **Daily Portfolio Value Updates**: Based on live market data.
+- **Profit/Loss Calculation**: Users can track investment growth.
+- **Admin Performance Reports**.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 💵 Withdrawal System
+- **Users Can Request Payouts**.
+- **Email Confirmation for Security**.
+- **Admin Approval Before Processing**.
+- **Minimum Withdrawal Amount**: $50 equivalent.
+- **Processing Period**: 5 business days.
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## 🛠️ Tech Stack
 
-## Contributing
+| **Technology** | **Usage** |
+|---------------|-----------|
+| **Laravel 10** | Backend Framework |
+| **Laravel Breeze** | Authentication & Session Handling |
+| **Blade Templates** | Frontend Templating |
+| **Alpine.js** | Lightweight JS for UI Interactions |
+| **Livewire (Optional)** | Real-time UI updates |
+| **PostgreSQL** | Database |
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 📋 Project Structure
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```
+/crypto-portfolio-management
+│── /app
+│   │── /Http/Controllers   # API & Web Controllers
+│   │── /Models             # Eloquent ORM Models
+│   │── /Services           # Business Logic
+│── /database
+│   │── /migrations         # Database Migrations
+│   │── /seeders            # Sample Data
+│── /resources
+│   │── /views              # Blade Template Files
+│   │── /js                 # Alpine.js Scripts
+│   │── /css                # Custom Styles
+│── /routes
+│   │── web.php             # Web Routes
+│   │── api.php             # API Routes
+│── /public                 # Frontend Assets
+│── .env                    # Environment Variables
+│── composer.json           # PHP Dependencies
+│── package.json            # JavaScript Dependencies
+│── README.md               # Documentation
+```
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 🖥️ Installation & Setup
 
-## License
+### 📌 Prerequisites
+- **PHP 8.1+**
+- **Composer**
+- **Node.js & npm**
+- **PostgreSQL**
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 📥 Clone Repository
+```bash
+git clone https://github.com/your-username/crypto-portfolio-management.git
+cd crypto-portfolio-management
+```
+
+### 📦 Install Dependencies
+```bash
+composer install
+npm install && npm run build
+```
+
+### ⚙️ Configure Environment
+Copy the `.env.example` file:
+```bash
+cp .env.example .env
+```
+Update database & API credentials:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=crypto_portfolio
+DB_USERNAME=root
+DB_PASSWORD=yourpassword
+
+APP_URL=http://localhost
+JWT_SECRET=your-secret-key
+```
+
+### 🔄 Run Migrations & Seeders
+```bash
+php artisan migrate --seed
+```
+
+### 🚀 Start Local Server
+```bash
+php artisan serve
+```
+
+---
+
+## 📡 API Endpoints
+
+### 🧑‍💻 User Authentication
+| Method | Endpoint | Description |
+|--------|---------|-------------|
+| POST | `/register` | Create a new account |
+| POST | `/login` | Authenticate user |
+| POST | `/logout` | Log out and clear session |
+| GET | `/user` | Retrieve authenticated user profile |
+
+### 🎨 Frontend (Blade) Implementation
+- **Authentication**: Uses Laravel Breeze's Blade authentication system.
+- **Dashboard UI**: Styled with **TailwindCSS + Alpine.js** for interactivity.
+- **Real-time Updates**: **Livewire (optional)** can be used for dynamic updates.
+
+---
+
+## 🚧 Development Timeline
+
+| Week | Task |
+|------|------|
+| 1 | Project setup, authentication system |
+| 2 | User registration & login, email verification |
+| 3 | Crypto deposit system, blockchain transaction monitoring |
+| 4 | Portfolio management system (predefined & custom portfolios) |
+| 5 | Withdrawal system, email verification workflow |
+
+---
+
+## 📝 License
+
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
+
