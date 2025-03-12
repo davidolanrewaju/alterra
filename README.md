@@ -36,9 +36,7 @@ A **full-stack Laravel application** for managing cryptocurrency portfolios. Thi
 - **Supported Networks**:
   ✅ Ethereum (ETH)
   ✅ Bitcoin (BTC)
-  ✅ Binance Smart Chain (BNB)
   ✅ Solana (SOL)
-  ✅ Polygon (MATIC)
 
 ### 📈 Portfolio Management
 - **Predefined Investment Strategies**: Users can invest in system-generated portfolios.
